@@ -145,8 +145,8 @@ function Start-FileWatcher {
             Add-Content -Path $LogFile -Value "[$time] Opened: $path" -ErrorAction SilentlyContinue
             $wshell.Popup("This application was opened: $path", 5, "File Access", 64)
         }
-        $null = Register-ObjectEvent -InputObject $watcher -EventName Created -SourceIdentifier "FileCreated_$PID" -Action $action
-        $null = Register-ObjectEvent -InputObject $watcher -EventName Changed -SourceIdentifier "FileChanged_$PID" -Action $action
+        Register-ObjectEvent -InputObject $watcher -EventName Created -SourceIdentifier "FileCreated_$PID" -Action $action | Out-Null
+        Register-ObjectEvent -InputObject $watcher -EventName Changed -SourceIdentifier "FileChanged_$PID" -Action $action | Out-Null
     } catch {
         Write-ColoredLine " W File watcher setup failed." Yellow
     }
