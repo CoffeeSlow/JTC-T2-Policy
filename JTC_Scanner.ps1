@@ -727,7 +727,7 @@ Wait-ForEnter -Message "Press Enter to Continue to Step 8"
 Clear-Host
 
 Write-BoxedHeader "STEP 8/9: COMPREHENSIVE SCAN" "Scanning system for suspicious activity..."
-Write-ColoredLine "W DO NOT CLOSE THIS WINDOW" Red
+Write-ColoredLine "DO NOT CLOSE THIS WINDOW" Red
 Show-CustomLoadingBar
 
 $step8Output = @()
