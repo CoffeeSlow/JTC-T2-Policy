@@ -36,9 +36,9 @@ function Wait-ForEnter {
     param([string]$Message = "Press Enter to Continue")
     Write-Host ""
     Write-ColoredLine ">> $Message" Cyan
-    while (-not [System.Console]::KeyAvailable -or [System.Console]::ReadKey($true).Key -ne "Enter") {
-        Start-Sleep -Milliseconds 50
-    }
+    do {
+        $key = [System.Console]::ReadKey($true)
+    } while ($key.Key -ne "Enter")
 }
 
 function Show-CustomLoadingBar {
@@ -59,16 +59,19 @@ function Show-CustomLoadingBar {
 
 function Write-BoxedHeader {
     param([string]$Title, [string]$Subtitle = "")
-    $width = 64
-    $titlePadding = [math]::Floor(($width - $Title.Length - 2) / 2)
-    $titleLine = " " * $titlePadding + $Title + " " * ($width - $titlePadding - $Title.Length - 2)
+    $innerWidth = 62
+    $border = "+" + ("-" * $innerWidth) + "+"
+    $titlePadding = [math]::Floor(($innerWidth - $Title.Length) / 2)
+    $titleLine = " " * $titlePadding + $Title + " " * ($innerWidth - $titlePadding - $Title.Length)
     Write-Host ""
-    Write-ColoredLine ("+--------------------------------------------------------+") Blue
-    Write-ColoredLine ("|" + $titleLine + "|") Blue
+    Write-ColoredLine $border Blue
+    Write-Host "|" -NoNewline -ForegroundColor Blue
+    Write-Host $titleLine -NoNewline
+    Write-Host "|" -ForegroundColor Blue
     if ($Subtitle) {
-        $subtitlePadding = [math]::Floor(($width - $Subtitle.Length - 2) / 2)
+        $subtitlePadding = [math]::Floor(($innerWidth - $Subtitle.Length) / 2)
         $leftPadding = " " * $subtitlePadding
-        $rightPadding = " " * ($width - $subtitlePadding - $Subtitle.Length - 2)
+        $rightPadding = " " * ($innerWidth - $subtitlePadding - $Subtitle.Length)
         $splitPoint = 14
         $firstHalf = $Subtitle.Substring(0, [math]::Min($splitPoint, $Subtitle.Length))
         $secondHalf = if ($Subtitle.Length -gt $splitPoint) { $Subtitle.Substring($splitPoint) } else { "" }
@@ -77,7 +80,7 @@ function Write-BoxedHeader {
         Write-Host ($secondHalf + $rightPadding) -NoNewline -ForegroundColor Magenta
         Write-Host "|" -ForegroundColor Blue
     }
-    Write-ColoredLine ("+--------------------------------------------------------+") Blue
+    Write-ColoredLine $border Blue
     Write-Host ""
 }
 
