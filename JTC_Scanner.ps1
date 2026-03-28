@@ -49,7 +49,11 @@ function Show-CustomLoadingBar {
         $empty = 40 - $filled
         $bar = "#" * $filled + "-" * $empty
         $percentage = "{0,3}" -f $p
-        Write-Host -NoNewline "`r [$bar] $percentage% " -ForegroundColor Cyan
+        if ($p -eq 100) {
+            Write-Host -NoNewline "`r [$bar] $percentage% " -ForegroundColor Green
+        } else {
+            Write-Host -NoNewline "`r [$bar] $percentage% " -ForegroundColor Red
+        }
         Start-Sleep -Milliseconds 50
         $i++
     }
