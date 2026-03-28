@@ -145,8 +145,8 @@ function Start-FileWatcher {
             Add-Content -Path $LogFile -Value "[$time] Opened: $path" -ErrorAction SilentlyContinue
             $wshell.Popup("This application was opened: $path", 5, "File Access", 64)
         }
-        Register-ObjectEvent -InputObject $watcher -EventName Created -SourceIdentifier "FileCreated_$PID" -Action $action
-        Register-ObjectEvent -InputObject $watcher -EventName Changed -SourceIdentifier "FileChanged_$PID" -Action $action
+        $null = Register-ObjectEvent -InputObject $watcher -EventName Created -SourceIdentifier "FileCreated_$PID" -Action $action
+        $null = Register-ObjectEvent -InputObject $watcher -EventName Changed -SourceIdentifier "FileChanged_$PID" -Action $action
     } catch {
         Write-ColoredLine " W File watcher setup failed." Yellow
     }
@@ -851,7 +851,7 @@ try {
 "@
     $elog = New-Object System.Diagnostics.Eventing.Reader.EventLogQuery("Microsoft-Windows-Windows Defender/Operational",[System.Diagnostics.Eventing.Reader.PathType]::LogName,$query)
     $watcher = New-Object System.Diagnostics.Eventing.Reader.EventLogWatcher($elog)
-    Register-ObjectEvent -InputObject $watcher -EventName EventRecordWritten -SourceIdentifier "DefenderWatcher_$PID" -Action {
+    $null = Register-ObjectEvent -InputObject $watcher -EventName EventRecordWritten -SourceIdentifier "DefenderWatcher_$PID" -Action {
         $evt = $EventArgs.EventRecord
         $eventId = $evt.Id
         switch ($eventId) {
