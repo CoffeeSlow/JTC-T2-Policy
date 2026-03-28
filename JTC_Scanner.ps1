@@ -154,11 +154,11 @@ function Start-FileWatcher {
 
 Clear-Host
 Write-Host ""
-Write-Host "      _ _____ ____   _____ ____    ____   ___  _     ___ ______  " -ForegroundColor DarkBlue
-Write-Host "     | |_   _/ ___| |_   _|___ \  |  _ \ / _ \| |   |_ _\ \ / /" -ForegroundColor DarkBlue
-Write-Host "  _  | | | || |       | |   __) | | |_) | | | | |    | | \ V / " -ForegroundColor DarkBlue
-Write-Host " | |_| | | || |___    | |  / __/  |  __/| |_| | |___ | |  | |  " -ForegroundColor DarkBlue
-Write-Host "  \___/  |_| \____|   |_| |_____| |_|    \___/|_____|___| |_|  " -ForegroundColor DarkBlue
+Write-Host "      _ _____ ____   _____ ____    ____   ___  _     ___ ______   __" -ForegroundColor DarkBlue
+Write-Host "     | |_   _/ ___| |_   _|___ \  |  _ \ / _ \| |   |_ _\ \ / /  / /" -ForegroundColor DarkBlue
+Write-Host "  _  | | | || |       | |   __) | | |_) | | | | |    | | \ V /  / /  " -ForegroundColor DarkBlue
+Write-Host " | |_| | | || |___    | |  / __/  |  __/| |_| | |___ | |  | | / /   " -ForegroundColor DarkBlue
+Write-Host "  \___/  |_| \____|   |_| |_____| |_|    \___/|_____|___| |_|/_/    " -ForegroundColor DarkBlue
 Write-Host ""
 
 Write-ColoredLine "============================================================" Cyan
