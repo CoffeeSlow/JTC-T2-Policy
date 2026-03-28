@@ -73,10 +73,8 @@ function Write-BoxedHeader {
         $firstHalf = $Subtitle.Substring(0, [math]::Min($splitPoint, $Subtitle.Length))
         $secondHalf = if ($Subtitle.Length -gt $splitPoint) { $Subtitle.Substring($splitPoint) } else { "" }
         Write-Host "|" -NoNewline -ForegroundColor Blue
-        Write-Host $leftPadding -NoNewline
-        Write-Host $firstHalf -NoNewline -ForegroundColor White
-        Write-Host $secondHalf -NoNewline -ForegroundColor Magenta
-        Write-Host $rightPadding -NoNewline
+        Write-Host ($leftPadding + $firstHalf) -NoNewline -ForegroundColor White
+        Write-Host ($secondHalf + $rightPadding) -NoNewline -ForegroundColor Magenta
         Write-Host "|" -ForegroundColor Blue
     }
     Write-ColoredLine ("+--------------------------------------------------------+") Blue
@@ -149,12 +147,17 @@ function Start-FileWatcher {
 
 Clear-Host
 Write-Host ""
-Write-Host "     _ _____ ____   _____ ____    ____   ___  _     ___ ______   __" -ForegroundColor DarkBlue
-Write-Host "    | |_   _/ ___| |_   _|___ \  |  _ \ / _ \| |   |_ _/ ___\ \ / /" -ForegroundColor DarkBlue
-Write-Host " _  | | | || |       | |   __) | | |_) | | | | |    | | |    \ V /" -ForegroundColor DarkBlue
-Write-Host "| |_| | | || |___    | |  / __/  |  __/| |_| | |___ | | |___  | |" -ForegroundColor DarkBlue
-Write-Host " \__| |_| || |___\   | |_ \__ \  | |__ |  _  |_____|  _/|____||_|" -ForegroundColor DarkBlue
-Write-Host "   |_|     |_____|   |___||___/  |____||_| |_|     |_|  |___|(_)  " -ForegroundColor DarkBlue
+Write-Host "    JJJJJJJ   TTTTTTTT   CCCCCC  " -ForegroundColor DarkBlue
+Write-Host "       JJ       TT      CC       " -ForegroundColor DarkBlue
+Write-Host "       JJ       TT      CC       " -ForegroundColor DarkBlue
+Write-Host "       JJ       TT      CC       " -ForegroundColor DarkBlue
+Write-Host "  JJJJJJJ       TT       CCCCCC  " -ForegroundColor DarkBlue
+Write-Host "" -ForegroundColor DarkBlue
+Write-Host "   TTTTTTTT   2222222   PPPP    OOO    L      IIIII   CCCCCC   YY   YY" -ForegroundColor DarkBlue
+Write-Host "     TT      2      2  PP  PP  O   O   L        I    CC       YY   YY" -ForegroundColor DarkBlue
+Write-Host "     TT      22222222  PPPPP   O   O   L        I    CC        YY YY " -ForegroundColor DarkBlue
+Write-Host "     TT      2     2   PP      O   O   L        I    CC         YY   " -ForegroundColor DarkBlue
+Write-Host "     TT      2222222   PP       OOO    LLLLL  IIIII   CCCCCC    YY   " -ForegroundColor DarkBlue
 Write-Host ""
 
 Write-ColoredLine "============================================================" Cyan
