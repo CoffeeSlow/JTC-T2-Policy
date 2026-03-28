@@ -63,14 +63,23 @@ function Write-BoxedHeader {
     $titlePadding = [math]::Floor(($width - $Title.Length - 2) / 2)
     $titleLine = " " * $titlePadding + $Title + " " * ($width - $titlePadding - $Title.Length - 2)
     Write-Host ""
-    Write-ColoredLine ("+--------------------------------------------------------+") Cyan
-    Write-ColoredLine ("|" + $titleLine + "|") Cyan
+    Write-ColoredLine ("+--------------------------------------------------------+") Blue
+    Write-ColoredLine ("|" + $titleLine + "|") Blue
     if ($Subtitle) {
         $subtitlePadding = [math]::Floor(($width - $Subtitle.Length - 2) / 2)
-        $subtitleLine = " " * $subtitlePadding + $Subtitle + " " * ($width - $subtitlePadding - $Subtitle.Length - 2)
-        Write-ColoredLine ("|" + $subtitleLine + "|") DarkCyan
+        $leftPadding = " " * $subtitlePadding
+        $rightPadding = " " * ($width - $subtitlePadding - $Subtitle.Length - 2)
+        $splitPoint = 14
+        $firstHalf = $Subtitle.Substring(0, [math]::Min($splitPoint, $Subtitle.Length))
+        $secondHalf = if ($Subtitle.Length -gt $splitPoint) { $Subtitle.Substring($splitPoint) } else { "" }
+        Write-Host "|" -NoNewline -ForegroundColor Blue
+        Write-Host $leftPadding -NoNewline
+        Write-Host $firstHalf -NoNewline -ForegroundColor White
+        Write-Host $secondHalf -NoNewline -ForegroundColor Magenta
+        Write-Host $rightPadding -NoNewline
+        Write-Host "|" -ForegroundColor Blue
     }
-    Write-ColoredLine ("+--------------------------------------------------------+") Cyan
+    Write-ColoredLine ("+--------------------------------------------------------+") Blue
     Write-Host ""
 }
 
@@ -140,11 +149,12 @@ function Start-FileWatcher {
 
 Clear-Host
 Write-Host ""
-Write-Host "     _ _____ ____   _____ ____    ____   ___  _     ___ ______   __" -ForegroundColor Red
-Write-Host "    | |_   _/ ___| |_   _|___ \  |  _ \ / _ \| |   |_ _/ ___\ \ / /" -ForegroundColor Red
-Write-Host " _  | | | || |       | |   __) | | |_) | | | | |    | | |    \ V /" -ForegroundColor Red
-Write-Host "| |_| | | || |___    | |  / __/  |  __/| |_| | |___ | | |___  | | " -ForegroundColor Red
-Write-Host "  \___/  |_| \____|   |_| |_____| |_|    \___/|_____|___|\____| |_|  " -ForegroundColor Red
+Write-Host "     _ _____ ____   _____ ____    ____   ___  _     ___ ______   __" -ForegroundColor DarkBlue
+Write-Host "    | |_   _/ ___| |_   _|___ \  |  _ \ / _ \| |   |_ _/ ___\ \ / /" -ForegroundColor DarkBlue
+Write-Host " _  | | | || |       | |   __) | | |_) | | | | |    | | |    \ V /" -ForegroundColor DarkBlue
+Write-Host "| |_| | | || |___    | |  / __/  |  __/| |_| | |___ | | |___  | |" -ForegroundColor DarkBlue
+Write-Host " \__| |_| || |___\   | |_ \__ \  | |__ |  _  |_____|  _/|____||_|" -ForegroundColor DarkBlue
+Write-Host "   |_|     |_____|   |___||___/  |____||_| |_|     |_|  |___|(_)  " -ForegroundColor DarkBlue
 Write-Host ""
 
 Write-ColoredLine "============================================================" Cyan
