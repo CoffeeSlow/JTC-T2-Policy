@@ -154,17 +154,11 @@ function Start-FileWatcher {
 
 Clear-Host
 Write-Host ""
-Write-Host "    JJJJJJJ   TTTTTTTT   CCCCCC  " -ForegroundColor DarkBlue
-Write-Host "       JJ       TT      CC       " -ForegroundColor DarkBlue
-Write-Host "       JJ       TT      CC       " -ForegroundColor DarkBlue
-Write-Host "       JJ       TT      CC       " -ForegroundColor DarkBlue
-Write-Host "  JJJJJJJ       TT       CCCCCC  " -ForegroundColor DarkBlue
-Write-Host "" -ForegroundColor DarkBlue
-Write-Host "   TTTTTTTT   2222222   PPPP    OOO    L      IIIII   CCCCCC   YY   YY" -ForegroundColor DarkBlue
-Write-Host "     TT      2      2  PP  PP  O   O   L        I    CC       YY   YY" -ForegroundColor DarkBlue
-Write-Host "     TT      22222222  PPPPP   O   O   L        I    CC        YY YY " -ForegroundColor DarkBlue
-Write-Host "     TT      2     2   PP      O   O   L        I    CC         YY   " -ForegroundColor DarkBlue
-Write-Host "     TT      2222222   PP       OOO    LLLLL  IIIII   CCCCCC    YY   " -ForegroundColor DarkBlue
+Write-Host "      _ _____ ____   _____ ____    ____   ___  _     ___ ______  " -ForegroundColor DarkBlue
+Write-Host "     | |_   _/ ___| |_   _|___ \  |  _ \ / _ \| |   |_ _\ \ / /" -ForegroundColor DarkBlue
+Write-Host "  _  | | | || |       | |   __) | | |_) | | | | |    | | \ V / " -ForegroundColor DarkBlue
+Write-Host " | |_| | | || |___    | |  / __/  |  __/| |_| | |___ | |  | |  " -ForegroundColor DarkBlue
+Write-Host "  \___/  |_| \____|   |_| |_____| |_|    \___/|_____|___| |_|  " -ForegroundColor DarkBlue
 Write-Host ""
 
 Write-ColoredLine "============================================================" Cyan
