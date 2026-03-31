@@ -310,7 +310,7 @@ $bamOutput = @()
 $prefetchOutput = @()
 
 $suspiciousFiles = @(
-    "synapse exploit", "synapsex exploit", "krnl exploit", "fluxus exploit",
+    "synapse exploit", "synapsex exploit", "synapse z exploit", "krnl exploit", "fluxus exploit",
     "oxygenu exploit", "viperx exploit", "electron exploit", "novaline exploit",
     "wrft exploit", "darkdex exploit", "owlhub exploit", "dex v4 exploit",
     "dex explorer exploit", "pegasus exploit", "protosmasher exploit",
@@ -322,17 +322,25 @@ $suspiciousFiles = @(
     "wallhack exploit", "server hopper exploit", "admin gui exploit",
     "blox fruits hack", "da hood hack", "mm2 hack", "bedwars hack",
     "arsenal hack", "jailbreak hack", "counter blox hack", "shindo hack",
-    "anime fighters hack", "king legacy hack"
+    "anime fighters hack", "king legacy hack",
+    "volt exploit", "potassium exploit", "wave exploit", "cosmic exploit",
+    "volcano exploit", "isaeva exploit", "velocity exploit", "seliware exploit",
+    "bunni exploit", "sirhurt exploit", "solara exploit", "xeno exploit",
+    "hydrogen exploit", "macsploit exploit", "opiumware exploit"
 )
 
 $watchlist = @(
-    "SYNAPSE_X_LOADER.EXE", "KRNL_LOADER.EXE", "FLUXUS_LOADER.EXE",
+    "SYNAPSE_X_LOADER.EXE", "SYNAPSE_Z_LOADER.EXE", "KRNL_LOADER.EXE", "FLUXUS_LOADER.EXE",
     "OXYGENU_LOADER.EXE", "VIPERX_LOADER.EXE", "NOVALINE_LOADER.EXE",
     "WRFT_LOADER.EXE", "DARKDEX4_LOADER.EXE", "PEGASUS_LOADER.EXE",
     "PROTOSMASHER_LOADER.EXE", "JJSPLOIT_LOADER.EXE", "NEBULA_LOADER.EXE",
     "REAPER_LOADER.EXE", "AZAEL_LOADER.EXE", "KEKSPLOIT_LOADER.EXE",
     "BLOXFLIP_PREDICTOR.EXE", "OWLHUB_LOADER.EXE", "INFINITE_YIELD_LOADER.EXE",
-    "ANS_LOADER.EXE", "DEXV4_LOADER.EXE", "ROBLOX_EXPLOIT_LOADER.EXE"
+    "ANS_LOADER.EXE", "DEXV4_LOADER.EXE", "ROBLOX_EXPLOIT_LOADER.EXE",
+    "VOLT_LOADER.EXE", "POTASSIUM_LOADER.EXE", "WAVE_LOADER.EXE", "COSMIC_LOADER.EXE",
+    "VOLCANO_LOADER.EXE", "ISAEVA_LOADER.EXE", "VELOCITY_LOADER.EXE", "SELIXWARE_LOADER.EXE",
+    "BUNNI_LOADER.EXE", "SIRHURT_LOADER.EXE", "SOLARA_LOADER.EXE", "XENO_LOADER.EXE",
+    "HYDROGEN_LOADER.EXE", "MACSPLOIT_LOADER.EXE", "OPIUMWARE_LOADER.EXE"
 )
 
 $allSuspicious = $suspiciousFiles + $watchlist
@@ -670,7 +678,7 @@ Show-CustomLoadingBar
 
 $step7Output = @()
 $suspiciousCombined = @(
-    "synapse exploit", "synapsex exploit", "krnl exploit", "fluxus exploit",
+    "synapse exploit", "synapsex exploit", "synapse z exploit", "krnl exploit", "fluxus exploit",
     "oxygenu exploit", "viperx exploit", "electron exploit", "novaline exploit",
     "wrft exploit", "darkdex exploit", "owlhub exploit", "dex v4 exploit",
     "pegasus exploit", "protosmasher exploit", "jjsploit exploit",
@@ -678,7 +686,11 @@ $suspiciousCombined = @(
     "free robux generator", "infinite yield exploit", "ans exploit",
     "btools exploit", "remotespy exploit", "esp exploit", "aimbot exploit",
     "silent aim exploit", "triggerbot exploit", "wallhack exploit",
-    "admin gui exploit", "blox fruits hack", "da hood hack", "mm2 hack"
+    "admin gui exploit", "blox fruits hack", "da hood hack", "mm2 hack",
+    "volt exploit", "potassium exploit", "wave exploit", "cosmic exploit",
+    "volcano exploit", "isaeva exploit", "velocity exploit", "seliware exploit",
+    "bunni exploit", "sirhurt exploit", "solara exploit", "xeno exploit",
+    "hydrogen exploit", "macsploit exploit", "opiumware exploit"
 )
 
 $registryPaths = @(
@@ -726,12 +738,16 @@ Show-CustomLoadingBar
 
 $step8Output = @()
 $suspiciousFiles2 = @(
-    "synapse exploit", "synapsex exploit", "krnl exploit", "fluxus exploit",
+    "synapse exploit", "synapsex exploit", "synapse z exploit", "krnl exploit", "fluxus exploit",
     "oxygenu exploit", "viperx exploit", "electron exploit", "novaline exploit",
     "darkdex exploit", "owlhub exploit", "dex v4 exploit", "pegasus exploit",
     "jjsploit exploit", "bloxflip predictor", "free robux generator",
     "infinite yield exploit", "btools exploit", "esp exploit", "aimbot exploit",
-    "admin gui exploit", "blox fruits hack", "da hood hack", "mm2 hack"
+    "admin gui exploit", "blox fruits hack", "da hood hack", "mm2 hack",
+    "volt exploit", "potassium exploit", "wave exploit", "cosmic exploit",
+    "volcano exploit", "isaeva exploit", "velocity exploit", "seliware exploit",
+    "bunni exploit", "sirhurt exploit", "solara exploit", "xeno exploit",
+    "hydrogen exploit", "macsploit exploit", "opiumware exploit"
 )
 
 $downloadsPath = [Environment]::GetFolderPath("UserProfile") + "\Downloads"
