@@ -326,7 +326,10 @@ $suspiciousFiles = @(
     "volt exploit", "potassium exploit", "wave exploit", "cosmic exploit",
     "volcano exploit", "isaeva exploit", "velocity exploit", "seliware exploit",
     "bunni exploit", "sirhurt exploit", "solara exploit", "xeno exploit",
-    "hydrogen exploit", "macsploit exploit", "opiumware exploit"
+    "hydrogen exploit", "macsploit exploit", "opiumware exploit",
+    "delta exploit", "cryptic exploit", "vega x exploit", "codex exploit",
+    "serotonin exploit", "severe exploit", "rbxcli exploit", "ronin exploit",
+    "matcha exploit", "matrix hub exploit", "photon exploit", "dx9ware exploit"
 )
 
 $watchlist = @(
@@ -340,7 +343,10 @@ $watchlist = @(
     "VOLT_LOADER.EXE", "POTASSIUM_LOADER.EXE", "WAVE_LOADER.EXE", "COSMIC_LOADER.EXE",
     "VOLCANO_LOADER.EXE", "ISAEVA_LOADER.EXE", "VELOCITY_LOADER.EXE", "SELIXWARE_LOADER.EXE",
     "BUNNI_LOADER.EXE", "SIRHURT_LOADER.EXE", "SOLARA_LOADER.EXE", "XENO_LOADER.EXE",
-    "HYDROGEN_LOADER.EXE", "MACSPLOIT_LOADER.EXE", "OPIUMWARE_LOADER.EXE"
+    "HYDROGEN_LOADER.EXE", "MACSPLOIT_LOADER.EXE", "OPIUMWARE_LOADER.EXE",
+    "DELTA_LOADER.EXE", "CRYPTIC_LOADER.EXE", "VEGAX_LOADER.EXE", "CODEX_LOADER.EXE",
+    "SEROTONIN_LOADER.EXE", "SEVERE_LOADER.EXE", "RBXCLI_LOADER.EXE", "RONIN_LOADER.EXE",
+    "MATCHA_LOADER.EXE", "MATRIXHUB_LOADER.EXE", "PHOTON_LOADER.EXE", "DX9WARE_LOADER.EXE"
 )
 
 $allSuspicious = $suspiciousFiles + $watchlist
@@ -690,7 +696,10 @@ $suspiciousCombined = @(
     "volt exploit", "potassium exploit", "wave exploit", "cosmic exploit",
     "volcano exploit", "isaeva exploit", "velocity exploit", "seliware exploit",
     "bunni exploit", "sirhurt exploit", "solara exploit", "xeno exploit",
-    "hydrogen exploit", "macsploit exploit", "opiumware exploit"
+    "hydrogen exploit", "macsploit exploit", "opiumware exploit",
+    "delta exploit", "cryptic exploit", "vega x exploit", "codex exploit",
+    "serotonin exploit", "severe exploit", "rbxcli exploit", "ronin exploit",
+    "matcha exploit", "matrix hub exploit", "photon exploit", "dx9ware exploit"
 )
 
 $registryPaths = @(
@@ -747,7 +756,10 @@ $suspiciousFiles2 = @(
     "volt exploit", "potassium exploit", "wave exploit", "cosmic exploit",
     "volcano exploit", "isaeva exploit", "velocity exploit", "seliware exploit",
     "bunni exploit", "sirhurt exploit", "solara exploit", "xeno exploit",
-    "hydrogen exploit", "macsploit exploit", "opiumware exploit"
+    "hydrogen exploit", "macsploit exploit", "opiumware exploit",
+    "delta exploit", "cryptic exploit", "vega x exploit", "codex exploit",
+    "serotonin exploit", "severe exploit", "rbxcli exploit", "ronin exploit",
+    "matcha exploit", "matrix hub exploit", "photon exploit", "dx9ware exploit"
 )
 
 $downloadsPath = [Environment]::GetFolderPath("UserProfile") + "\Downloads"
