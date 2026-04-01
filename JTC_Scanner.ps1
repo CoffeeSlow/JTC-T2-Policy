@@ -329,7 +329,8 @@ $suspiciousFiles = @(
     "hydrogen exploit", "macsploit exploit", "opiumware exploit",
     "delta exploit", "cryptic exploit", "vega x exploit", "codex exploit",
     "serotonin exploit", "severe exploit", "rbxcli exploit", "ronin exploit",
-    "matcha exploit", "matrix hub exploit", "photon exploit", "dx9ware exploit"
+    "matcha exploit", "matrix hub exploit", "photon exploit", "dx9ware exploit",
+    "kiciahook exploit", "snaw exploit", "ue v2 exploit"
 )
 
 $watchlist = @(
@@ -346,7 +347,8 @@ $watchlist = @(
     "HYDROGEN_LOADER.EXE", "MACSPLOIT_LOADER.EXE", "OPIUMWARE_LOADER.EXE",
     "DELTA_LOADER.EXE", "CRYPTIC_LOADER.EXE", "VEGAX_LOADER.EXE", "CODEX_LOADER.EXE",
     "SEROTONIN_LOADER.EXE", "SEVERE_LOADER.EXE", "RBXCLI_LOADER.EXE", "RONIN_LOADER.EXE",
-    "MATCHA_LOADER.EXE", "MATRIXHUB_LOADER.EXE", "PHOTON_LOADER.EXE", "DX9WARE_LOADER.EXE"
+    "MATCHA_LOADER.EXE", "MATRIXHUB_LOADER.EXE", "PHOTON_LOADER.EXE", "DX9WARE_LOADER.EXE",
+    "KICIAHOOK_LOADER.EXE", "SNAW_LOADER.EXE", "UEV2_LOADER.EXE"
 )
 
 $allSuspicious = $suspiciousFiles + $watchlist
@@ -699,7 +701,8 @@ $suspiciousCombined = @(
     "hydrogen exploit", "macsploit exploit", "opiumware exploit",
     "delta exploit", "cryptic exploit", "vega x exploit", "codex exploit",
     "serotonin exploit", "severe exploit", "rbxcli exploit", "ronin exploit",
-    "matcha exploit", "matrix hub exploit", "photon exploit", "dx9ware exploit"
+    "matcha exploit", "matrix hub exploit", "photon exploit", "dx9ware exploit",
+    "kiciahook exploit", "snaw exploit", "ue v2 exploit"
 )
 
 $registryPaths = @(
@@ -759,7 +762,8 @@ $suspiciousFiles2 = @(
     "hydrogen exploit", "macsploit exploit", "opiumware exploit",
     "delta exploit", "cryptic exploit", "vega x exploit", "codex exploit",
     "serotonin exploit", "severe exploit", "rbxcli exploit", "ronin exploit",
-    "matcha exploit", "matrix hub exploit", "photon exploit", "dx9ware exploit"
+    "matcha exploit", "matrix hub exploit", "photon exploit", "dx9ware exploit",
+    "kiciahook exploit", "snaw exploit", "ue v2 exploit"
 )
 
 $downloadsPath = [Environment]::GetFolderPath("UserProfile") + "\Downloads"
