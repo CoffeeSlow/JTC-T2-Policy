@@ -93,40 +93,23 @@ function Write-Section {
     Write-Host ""
     Write-ColoredLine " +- $Title" DarkGray
     foreach ($line in $Lines) {
-        if ($line -match "^SUCCESS") {
+        $display = $line -replace '^(SUCCESS|FAILURE|WARNING):?\s*', ''
+        if ($display -match "SUSPICIOUS") {
             Write-Host " | " -NoNewline -ForegroundColor DarkGray
-            Write-ColoredLine "OK $($line -replace '^SUCCESS: ', '')" Green
-        }
-        elseif ($line -match "^FAILURE") {
+            Write-ColoredLine $display Red
+        } else {
             Write-Host " | " -NoNewline -ForegroundColor DarkGray
-            Write-ColoredLine "X $($line -replace '^FAILURE: ', '')" Red
-        }
-        elseif ($line -match "^WARNING") {
-            Write-Host " | " -NoNewline -ForegroundColor DarkGray
-            Write-ColoredLine "W $($line -replace '^WARNING: ', '')" Yellow
-        }
-        elseif ($line -match "SUSPICIOUS") {
-            Write-Host " | " -NoNewline -ForegroundColor DarkGray
-            Write-ColoredLine "$line" Red
-        }
-        else {
-            Write-Host " | " -NoNewline -ForegroundColor DarkGray
-            Write-ColoredLine $line White
+            Write-ColoredLine $display White
         }
     }
     Write-ColoredLine " +-" DarkGray
 }
 
 function Write-StepResult {
-    param([int]$Success, [int]$Total, [int]$StepNumber)
-    $rate = if ($Total -gt 0) { [math]::Round(($Success / $Total) * 100, 0) } else { 100 }
-    $color = if ($rate -eq 100) { "Green" } elseif ($rate -ge 80) { "Yellow" } else { "Red" }
-    $icon = if ($rate -eq 100) { "OK" } elseif ($rate -ge 80) { "W" } else { "X" }
+    param([int]$StepNumber, [int]$RecordCount)
     Write-Host ""
     Write-Host "============================================================" -ForegroundColor DarkGray
-    Write-Host " $icon Step $StepNumber Result: " -NoNewline -ForegroundColor $color
-    Write-Host "$rate% " -NoNewline -ForegroundColor $color
-    Write-Host "($Success/$Total checks passed)" -ForegroundColor Gray
+    Write-Host " Step $StepNumber Complete  |  $RecordCount items collected" -ForegroundColor Cyan
     Write-Host "============================================================" -ForegroundColor DarkGray
 }
 
@@ -294,10 +277,8 @@ Write-Section "Defender Exclusions" $exclusionsOutput
 Write-Section "Threat Detection" $threatsOutput
 Write-Section "PowerShell Signature" $powershellSigOutput
 
-$allResults1 = $modulesOutput + $windowsOutput + $memoryIntegrityOutput + $defenderOutput + $exclusionsOutput + $threatsOutput + $powershellSigOutput
-$total1 = ($allResults1 | Where-Object { $_ -match '^(SUCCESS|FAILURE|WARNING)' }).Count
-$success1 = ($allResults1 | Where-Object { $_ -match '^SUCCESS' }).Count
-Write-StepResult -Success $success1 -Total $total1 -StepNumber 1
+$recordCount1 = $modulesOutput.Count + $windowsOutput.Count + $memoryIntegrityOutput.Count + $defenderOutput.Count + $exclusionsOutput.Count + $threatsOutput.Count + $powershellSigOutput.Count
+Write-StepResult -StepNumber 1 -RecordCount $recordCount1
 
 Wait-ForEnter -Message "Press Enter to Continue to Step 2"
 
@@ -444,10 +425,8 @@ try {
 Write-Section "BAM Entries" $bamOutput
 Write-Section "Prefetch Entries" $prefetchOutput
 
-$allResults2 = $bamOutput + $prefetchOutput
-$total2 = ($allResults2 | Where-Object { $_ -match '^(SUCCESS|FAILURE|WARNING)' }).Count
-$success2 = ($allResults2 | Where-Object { $_ -match '^SUCCESS' }).Count
-Write-StepResult -Success $success2 -Total $total2 -StepNumber 2
+$recordCount2 = $bamOutput.Count + $prefetchOutput.Count
+Write-StepResult -StepNumber 2 -RecordCount $recordCount2
 
 Wait-ForEnter -Message "Press Enter to Continue to Step 3"
 
@@ -511,9 +490,8 @@ if ($actualExe) {
 }
 
 Write-Section "Process Explorer Analysis" $peOutput
-$total3 = ($peOutput | Where-Object { $_ -match '^(SUCCESS|FAILURE|WARNING)' }).Count
-$success3 = ($peOutput | Where-Object { $_ -match '^SUCCESS' }).Count
-Write-StepResult -Success $success3 -Total $total3 -StepNumber 3
+$recordCount3 = $peOutput.Count
+Write-StepResult -StepNumber 3 -RecordCount $recordCount3
 
 Wait-ForEnter -Message "Press Enter to Continue to Step 4"
 
@@ -571,9 +549,8 @@ if ($actualExe) {
 }
 
 Write-Section "WinObj Analysis" $winobjOutput
-$total4 = ($winobjOutput | Where-Object { $_ -match '^(SUCCESS|FAILURE|WARNING)' }).Count
-$success4 = ($winobjOutput | Where-Object { $_ -match '^SUCCESS' }).Count
-Write-StepResult -Success $success4 -Total $total4 -StepNumber 4
+$recordCount4 = $winobjOutput.Count
+Write-StepResult -StepNumber 4 -RecordCount $recordCount4
 
 Wait-ForEnter -Message "Press Enter to Continue to Step 5"
 
@@ -617,10 +594,10 @@ if ($actualExe) {
     Start-Process -FilePath $actualExe.FullName
 }
 
-$autorunOutput = @("SUCCESS: Autorun analysis completed.")
+$autorunOutput = @("Autorun analysis completed.")
 Write-Section "Autoruns Analysis" $autorunOutput
-$total5 = 1; $success5 = 1
-Write-StepResult -Success $success5 -Total $total5 -StepNumber 5
+$recordCount5 = $autorunOutput.Count
+Write-StepResult -StepNumber 5 -RecordCount $recordCount5
 
 Wait-ForEnter -Message "Press Enter to Continue to Step 6"
 
@@ -673,9 +650,8 @@ try {
 
 Write-ColoredLine " +-" DarkGray
 Write-Section "Gaming Peripheral Check" $hardwareOutput
-$total6 = ($hardwareOutput | Where-Object { $_ -match '^(SUCCESS|FAILURE|WARNING)' }).Count
-$success6 = ($hardwareOutput | Where-Object { $_ -match '^SUCCESS' }).Count
-Write-StepResult -Success $success6 -Total $total6 -StepNumber 6
+$recordCount6 = $hardwareOutput.Count
+Write-StepResult -StepNumber 6 -RecordCount $recordCount6
 
 Wait-ForEnter -Message "Press Enter to Continue to Step 7"
 
@@ -736,9 +712,8 @@ if ($foundSuspiciousRegistry) { $step7Output += "WARNING: Suspicious registry en
 else { $step7Output += "SUCCESS: No suspicious registry entries" }
 
 Write-Section "Registry Deep Scan" $step7Output
-$total7 = ($step7Output | Where-Object { $_ -match '^(SUCCESS|FAILURE|WARNING)' }).Count
-$success7 = ($step7Output | Where-Object { $_ -match '^SUCCESS' }).Count
-Write-StepResult -Success $success7 -Total $total7 -StepNumber 7
+$recordCount7 = $step7Output.Count
+Write-StepResult -StepNumber 7 -RecordCount $recordCount7
 
 Wait-ForEnter -Message "Press Enter to Continue to Step 8"
 
@@ -798,9 +773,8 @@ try {
 } catch { $step8Output += "WARNING: Process scan failed." }
 
 Write-Section "Comprehensive Security Scan" $step8Output
-$total8 = ($step8Output | Where-Object { $_ -match '^(SUCCESS|FAILURE|WARNING)' }).Count
-$success8 = ($step8Output | Where-Object { $_ -match '^SUCCESS' }).Count
-Write-StepResult -Success $success8 -Total $total8 -StepNumber 8
+$recordCount8 = $step8Output.Count
+Write-StepResult -StepNumber 8 -RecordCount $recordCount8
 
 Wait-ForEnter -Message "Press Enter to Continue to Step 9"
 
@@ -817,9 +791,8 @@ try {
 } catch { $defenderHistoryOutput += "WARNING: Cannot retrieve Defender history." }
 
 Write-Section "Windows Defender History" $defenderHistoryOutput
-$total9 = ($defenderHistoryOutput | Where-Object { $_ -match '^(SUCCESS|FAILURE|WARNING)' }).Count
-$success9 = ($defenderHistoryOutput | Where-Object { $_ -match '^SUCCESS' }).Count
-Write-StepResult -Success $success9 -Total $total9 -StepNumber 9
+$recordCount9 = $defenderHistoryOutput.Count
+Write-StepResult -StepNumber 9 -RecordCount $recordCount9
 
 Write-Host ""
 Write-ColoredLine "============================================================" Cyan
@@ -913,35 +886,31 @@ Write-ColoredLine " FINAL SCAN REPORT" Green
 Write-ColoredLine "============================================================" Cyan
 Write-Host ""
 
-$totalChecks = $total1 + $total2 + $total3 + $total4 + $total5 + $total6 + $total7 + $total8 + $total9
-$totalSuccess = $success1 + $success2 + $success3 + $success4 + $success5 + $success6 + $success7 + $success8 + $success9
-$overallSuccess = if ($totalChecks -gt 0) { [math]::Round(($totalSuccess / $totalChecks) * 100, 0) } else { 100 }
-$overallColor = if ($overallSuccess -eq 100) { "Green" } elseif ($overallSuccess -ge 80) { "Yellow" } else { "Red" }
+$totalRecords = $recordCount1 + $recordCount2 + $recordCount3 + $recordCount4 + $recordCount5 + $recordCount6 + $recordCount7 + $recordCount8 + $recordCount9
 
-Write-Host " OVERALL SECURITY SCORE: " -NoNewline -ForegroundColor White
-Write-Host "$overallSuccess% " -NoNewline -ForegroundColor $overallColor
-Write-Host "($totalSuccess/$totalChecks checks passed)" -ForegroundColor Gray
+Write-Host " EVIDENCE SUMMARY" -ForegroundColor White
+Write-Host " Total records collected: $totalRecords" -ForegroundColor Gray
+Write-Host " Steps completed: 9/9" -ForegroundColor Gray
 Write-Host ""
 
-Write-ColoredLine " NEXT STEPS:" Yellow
-Write-ColoredLine " 1. Review the Defender monitoring logs above" White
-Write-ColoredLine " 2. Check the Process Activity Monitor window" White
-Write-ColoredLine " 3. Review log file for detailed timeline" White
-Write-ColoredLine " 4. Close all monitoring windows" White
+Write-ColoredLine " SOURCES:" Yellow
+Write-ColoredLine " Step 1 - System Baseline:  $recordCount1 records" White
+Write-ColoredLine " Step 2 - BAM & Prefetch:   $recordCount2 records" White
+Write-ColoredLine " Step 3 - Process Explorer: $recordCount3 records" White
+Write-ColoredLine " Step 4 - WinObj:           $recordCount4 records" White
+Write-ColoredLine " Step 5 - Autoruns:         $recordCount5 records" White
+Write-ColoredLine " Step 6 - Peripherals:     $recordCount6 records" White
+Write-ColoredLine " Step 7 - Registry:         $recordCount7 records" White
+Write-ColoredLine " Step 8 - Known Tools:     $recordCount8 records" White
+Write-ColoredLine " Step 9 - Defender History: $recordCount9 records" White
 Write-Host ""
 
-Write-ColoredLine " LOG FILE SAVED:" Yellow
+Write-ColoredLine " LOG:" Yellow
 Write-ColoredLine " $LogFile" White
 Write-Host ""
-
-Unregister-Event -SourceIdentifier "FileCreated_$PID" -ErrorAction SilentlyContinue
-Unregister-Event -SourceIdentifier "FileChanged_$PID" -ErrorAction SilentlyContinue
-
-$suspiciousFindings[0].Score = "$overallSuccess% ($totalSuccess / $totalChecks)"
 
 Wait-ForEnter -Message "Press Enter to Exit"
 
 Clear-Host
 Write-ColoredLine "`n Thank you for using UnknxwnTrace`n" Cyan
-Write-ColoredLine " Log saved to: $LogFile`n" Gray
 exit
