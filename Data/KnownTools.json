@@ -1,0 +1,91 @@
+{
+  "version": "2.0",
+  "tools": [
+    {
+      "Name": "Roblox-Exploit-Loaders",
+      "Category": "Exploit-Roblox",
+      "Risk": "High",
+      "Confidence": "Medium",
+      "Description": "Generic Roblox exploit and executor tools commonly used for game cheating",
+      "Executables": [
+        "SYNAPSE_X_LOADER.EXE", "SYNAPSE_Z_LOADER.EXE", "KRNL_LOADER.EXE", "FLUXUS_LOADER.EXE",
+        "OXYGENU_LOADER.EXE", "VIPERX_LOADER.EXE", "NOVALINE_LOADER.EXE", "WRFT_LOADER.EXE",
+        "DARKDEX4_LOADER.EXE", "PEGASUS_LOADER.EXE", "PROTOSMASHER_LOADER.EXE", "JJSPLOIT_LOADER.EXE",
+        "NEBULA_LOADER.EXE", "REAPER_LOADER.EXE", "AZAEL_LOADER.EXE", "KEKSPLOIT_LOADER.EXE",
+        "BLOXFLIP_PREDICTOR.EXE", "OWLHUB_LOADER.EXE", "INFINITE_YIELD_LOADER.EXE", "ANS_LOADER.EXE",
+        "DEXV4_LOADER.EXE", "ROBLOX_EXPLOIT_LOADER.EXE", "VOLT_LOADER.EXE", "POTASSIUM_LOADER.EXE",
+        "WAVE_LOADER.EXE", "COSMIC_LOADER.EXE", "VOLCANO_LOADER.EXE", "ISAEVA_LOADER.EXE",
+        "VELOCITY_LOADER.EXE", "SELIXWARE_LOADER.EXE", "BUNNI_LOADER.EXE", "SIRHURT_LOADER.EXE",
+        "SOLARA_LOADER.EXE", "XENO_LOADER.EXE", "HYDROGEN_LOADER.EXE", "MACSPLOIT_LOADER.EXE",
+        "OPIUMWARE_LOADER.EXE", "DELTA_LOADER.EXE", "CRYPTIC_LOADER.EXE", "VEGAX_LOADER.EXE",
+        "CODEX_LOADER.EXE", "SEROTONIN_LOADER.EXE", "SEVERE_LOADER.EXE", "RBXCLI_LOADER.EXE",
+        "RONIN_LOADER.EXE", "MATCHA_LOADER.EXE", "MATRIXHUB_LOADER.EXE", "PHOTON_LOADER.EXE",
+        "DX9WARE_LOADER.EXE", "KICIAHOOK_LOADER.EXE", "SNAW_LOADER.EXE", "UEV2_LOADER.EXE"
+      ],
+      "PrefetchPatterns": [
+        "SYNAPSE_X_LOADER", "SYNAPSE_Z_LOADER", "KRNL_LOADER", "FLUXUS_LOADER",
+        "OXYGENU_LOADER", "VIPERX_LOADER", "NOVALINE_LOADER", "WRFT_LOADER",
+        "DARKDEX4_LOADER", "PEGASUS_LOADER", "PROTOSMASHER_LOADER", "JJSPLOIT_LOADER",
+        "NEBULA_LOADER", "REAPER_LOADER", "AZAEL_LOADER", "KEKSPLOIT_LOADER",
+        "BLOXFLIP_PREDICTOR", "OWLHUB_LOADER", "INFINITE_YIELD_LOADER", "ANS_LOADER",
+        "DEXV4_LOADER", "ROBLOX_EXPLOIT_LOADER", "VOLT_LOADER", "POTASSIUM_LOADER",
+        "WAVE_LOADER", "COSMIC_LOADER", "VOLCANO_LOADER", "ISAEVA_LOADER",
+        "VELOCITY_LOADER", "SELIXWARE_LOADER", "BUNNI_LOADER", "SIRHURT_LOADER",
+        "SOLARA_LOADER", "XENO_LOADER", "HYDROGEN_LOADER", "MACSPLOIT_LOADER",
+        "OPIUMWARE_LOADER", "DELTA_LOADER", "CRYPTIC_LOADER", "VEGAX_LOADER",
+        "CODEX_LOADER", "SEROTONIN_LOADER", "SEVERE_LOADER", "RBXCLI_LOADER",
+        "RONIN_LOADER", "MATCHA_LOADER", "MATRIXHUB_LOADER", "PHOTON_LOADER",
+        "DX9WARE_LOADER", "KICIAHOOK_LOADER", "SNAW_LOADER", "UEV2_LOADER"
+      ],
+      "PathPatterns": [
+        "synapse exploit", "synapsex exploit", "synapse z exploit", "krnl exploit", "fluxus exploit",
+        "oxygenu exploit", "viperx exploit", "electron exploit", "novaline exploit",
+        "wrft exploit", "darkdex exploit", "owlhub exploit", "dex v4 exploit",
+        "dex explorer exploit", "pegasus exploit", "protosmasher exploit",
+        "jjsploit exploit", "nebula exploit", "reaper exploit", "azael exploit",
+        "keksploit exploit", "bloxflip predictor", "bloxflip exploit", "robux exploit",
+        "infinite yield exploit", "ans exploit",
+        "volt exploit", "potassium exploit", "wave exploit", "cosmic exploit",
+        "volcano exploit", "isaeva exploit", "velocity exploit", "seliware exploit",
+        "bunni exploit", "sirhurt exploit", "solara exploit", "xeno exploit",
+        "hydrogen exploit", "macsploit exploit", "opiumware exploit",
+        "delta exploit", "cryptic exploit", "vega x exploit", "codex exploit",
+        "serotonin exploit", "severe exploit", "rbxcli exploit", "ronin exploit",
+        "matcha exploit", "matrix hub exploit", "photon exploit", "dx9ware exploit",
+        "kiciahook exploit", "snaw exploit", "ue v2 exploit"
+      ]
+    },
+    {
+      "Name": "Roblox-Game-Hacks",
+      "Category": "Cheat-Roblox",
+      "Risk": "Medium",
+      "Confidence": "Low",
+      "Description": "Roblox game-specific cheat scripts and hacks",
+      "PathPatterns": [
+        "blox fruits hack", "da hood hack", "mm2 hack", "bedwars hack",
+        "arsenal hack", "jailbreak hack", "counter blox hack", "shindo hack",
+        "anime fighters hack", "king legacy hack"
+      ]
+    },
+    {
+      "Name": "Cheat-Utilities",
+      "Category": "Cheat-Generic",
+      "Risk": "Medium",
+      "Confidence": "Low",
+      "Description": "Generic cheat features and utilities commonly bundled in game exploit kits",
+      "PathPatterns": [
+        "btools exploit", "remotespy exploit", "fly hack exploit",
+        "esp exploit", "aimbot exploit", "silent aim exploit", "triggerbot exploit",
+        "wallhack exploit", "server hopper exploit", "admin gui exploit"
+      ]
+    },
+    {
+      "Name": "Free-Robux-Generator",
+      "Category": "Fraud",
+      "Risk": "High",
+      "Confidence": "Low",
+      "Description": "Fraudulent tools claiming to generate free Robux; often malware or phishing",
+      "PathPatterns": ["free robux generator"]
+    }
+  ]
+}
