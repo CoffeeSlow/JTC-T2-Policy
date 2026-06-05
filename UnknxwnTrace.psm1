@@ -32,7 +32,7 @@ function Show-UnknxwnTraceHelp {
     Write-Host '  .\UnknxwnTrace.ps1 [Mode]'
     Write-Host ''
     Write-Host 'Available modes:' -ForegroundColor Yellow
-    Write-Host '  -Legacy    Run preserved legacy JTC scanner'
+    Write-Host '  -Legacy    Run preserved legacy scanner'
     Write-Host ''
     Write-Host 'Planned modes:' -ForegroundColor Yellow
     Write-Host '  -Collect   Run modular evidence collectors'
@@ -54,7 +54,7 @@ function Start-UnknxwnTraceLegacy {
         [string[]]$Arguments = @()
     )
 
-    $legacyScanner = Join-Path $RootPath 'legacy\JTC_Scanner.ps1'
+    $legacyScanner = Join-Path $RootPath 'legacy\LegacyScanner.ps1'
     if (-not (Test-Path -LiteralPath $legacyScanner)) {
         throw "Legacy scanner not found: $legacyScanner"
     }
