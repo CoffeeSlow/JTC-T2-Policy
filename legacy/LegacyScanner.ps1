@@ -1,7 +1,7 @@
 param([switch]$SkipPause)
 
 $ErrorActionPreference = "SilentlyContinue"
-$Host.UI.RawUI.WindowTitle = "JTC Scanner"
+$Host.UI.RawUI.WindowTitle = "UnknxwnTrace Legacy"
 $Host.UI.RawUI.BackgroundColor = "Black"
 Clear-Host
 
@@ -167,7 +167,7 @@ Write-ColoredLine "============================================================"
 Write-Host ""
 Write-ColoredLine "INSTRUCTIONS:" Yellow
 Write-ColoredLine "- Complete all verification steps" White
-Write-ColoredLine "- Scan results saved to C:\ToolsJTC" White
+Write-ColoredLine "- Scan results saved to C:\UnknxwnTrace" White
 Write-ColoredLine "- Administrator privileges required" White
 Write-Host ""
 
@@ -202,8 +202,8 @@ Write-Host ""
 Wait-ForEnter -Message "Press Enter to Begin System Scan"
 
 Clear-Host
-New-Item -ItemType Directory -Path "C:\ToolsJTC" -ErrorAction SilentlyContinue | Out-Null
-$logFile = "C:\ToolsJTC\file_log.txt"
+New-Item -ItemType Directory -Path "C:\UnknxwnTrace" -ErrorAction SilentlyContinue | Out-Null
+$logFile = "C:\UnknxwnTrace\file_log.txt"
 Start-FileWatcher -LogFile $logFile
 
 Write-BoxedHeader "STEP 1/9: SYSTEM INTEGRITY" "Verifying security configuration..."
@@ -467,7 +467,7 @@ if ($runningPE) {
     Write-ColoredLine " OK No existing Process Explorer instances found." Green
 }
 
-$baseFolder = "C:\ToolsJTC"
+$baseFolder = "C:\UnknxwnTrace"
 $extractFolder = Join-Path $baseFolder "ProcessExplorer"
 $zipUrl = "https://download.sysinternals.com/files/ProcessExplorer.zip"
 $zipPath = Join-Path $baseFolder "ProcessExplorer.zip"
@@ -942,6 +942,6 @@ $suspiciousFindings[0].Score = "$overallSuccess% ($totalSuccess / $totalChecks)"
 Wait-ForEnter -Message "Press Enter to Exit"
 
 Clear-Host
-Write-ColoredLine "`n Thank you for using JTC T2 Policy Scanner`n" Cyan
+Write-ColoredLine "`n Thank you for using UnknxwnTrace`n" Cyan
 Write-ColoredLine " Log saved to: $LogFile`n" Gray
 exit
